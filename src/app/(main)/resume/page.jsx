@@ -1,4 +1,4 @@
-/*import { getResume } from "@/actions/resume";
+import { getResume } from "@/actions/resume";
 import ResumeBuilder from "./_components/resume-builder";
 
 export default async function ResumePage() {
@@ -9,4 +9,4 @@ export default async function ResumePage() {
       <ResumeBuilder initialContent={resume?.content} />
     </div>
   );
-}*/
+}

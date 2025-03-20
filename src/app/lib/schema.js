@@ -2,10 +2,10 @@ import { z } from "zod";
 
 export const onboardingSchema = z.object({
   industry: z.string({
-    required_error: "Please select an industry",
+    required_error: "Please select an industry!",
   }),
   subIndustry: z.string({
-    required_error: "Please select a specialization",
+    required_error: "Please select a specialization!",
   }),
   bio: z.string().max(500).optional(),
   experience: z
@@ -14,7 +14,7 @@ export const onboardingSchema = z.object({
     .pipe(
       z
         .number()
-        .min(0, "Experience must be at least 0 years")
+        .min(0, "Experience must be at least 0 years!")
         .max(50, "Experience cannot exceed 50 years")
     ),
   skills: z.string().transform((val) =>

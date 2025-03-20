@@ -8,6 +8,7 @@ import {
   Target,
   Sparkles,
   CheckCircle2,
+  BrainCircuit,
 } from "lucide-react";
 import HeroSection from "@/components/hero";
 import {
@@ -21,7 +22,7 @@ import { features } from "@/data/features";
 import { testimonial } from "@/data/testimonial";
 import { faqs } from "@/data/faqs";
 import { howItWorks } from "@/data/howItWorks";
-
+import { pricingPlans } from "@/data/pricing";
 export default function LandingPage() {
   return (
     <>
@@ -107,7 +108,38 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
+      {/* Pricing Section */}
+      <section className="w-full py-12 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Pricing Plans
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+              <Card
+                key={index}
+                className="border-2 hover:border-primary transition-colors duration-300"
+              >
+                <CardContent className="pt-6 text-center flex flex-col items-center">
+                  <div className="flex flex-col items-center justify-center">
+                    {plan.icon}
+                    <h3 className="text-xl font-bold mb-2">{plan.title}</h3>
+                    <p className="text-2xl font-bold mb-4">{plan.price}</p>
+                    <ul className="space-y-2 mb-6">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="text-muted-foreground">
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button>Get Started</Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="w-full py-12 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -183,7 +215,45 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
+      {/* Why Choose Our AI Mentor Section not imp can remove after */}
+      <section className="w-full py-12 md:py-24 bg-muted/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Our AI Mentor?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                icon: <BrainCircuit className="w-10 h-10 mb-4 text-primary" />,
+                title: "24/7 Virtual Mentor",
+                description: "Get instant guidance anytime, anywhere.",
+              },
+              {
+                icon: <Sparkles className="w-10 h-10 mb-4 text-primary" />,
+                title: "Personalized Learning",
+                description: "Tailored advice based on your goals and skills.",
+              },
+              {
+                icon: <Target className="w-10 h-10 mb-4 text-primary" />,
+                title: "Goal-Oriented Approach",
+                description:
+                  "Achieve your career milestones with actionable steps.",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center space-y-4"
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  {feature.icon}
+                </div>
+                <h3 className="font-semibold text-xl">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* CTA Section */}
       <section className="w-full">
         <div className="mx-auto py-24 gradient rounded-lg">

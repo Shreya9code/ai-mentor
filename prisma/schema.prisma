@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 model User{
-  id            String @id @default(uuid())
+  id            String    @id @default(uuid())
   clerkUserId   String    @unique // clerk user id
   email         String    @unique
   name          String?

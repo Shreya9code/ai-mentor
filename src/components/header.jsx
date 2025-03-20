@@ -1,58 +1,18 @@
-//"use client";
-import React, { useEffect, useState } from "react";
+"use client";
+import React from "react";
 import Image from "next/image";
 import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+  ClerkProvider,SignInButton,SignUpButton,SignedIn,SignedOut,UserButton,} from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import {
-  ChevronDown,
-  FileText,
-  GraduationCap,
-  LayoutDashboard,
-  PenBox,
-  Stars,
-  StarsIcon,
-} from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import {ChevronDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarsIcon} from "lucide-react";
+import {DropdownMenu,DropdownMenuContent,DropdownMenuItem,DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 //import { checkUser } from "@/lib/checkUser";
 
-const Header = /*async*/ () => {
-   //await checkUser()
-  /*const [user, setUser] = useState(null);
+const Header = /*async*/ ({user}) => {
+  console.log("🔍 Header - User Data:", user); // Debugging
+   //await checkUser();
 
-  useEffect(() => {
-    async function fetchUser() {
-      try {
-        const userData = await checkUser(); // ✅ Using checkUser() directly
-        setUser(userData);
-        /*const res = await fetch("/api/checkUser");
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        const data = await res.json();
-        if (!data || !data.user) { // ✅ Avoids `Unexpected end of JSON input`
-          setUser(null);
-          return;
-        }
-        setUser(data.user);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    }
-    fetchUser();
-  }, []);*/
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
